@@ -35,4 +35,9 @@ class CounterBlock {
       CounterSink.add(counter);
     });
   }
+  //prevent memory leak
+  void dispose() {
+    _stateStreamController.close();
+    _eventStreamController.close();
+  }
 }
